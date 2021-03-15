@@ -48,20 +48,16 @@ Im heißen Ofen bei 200 Grad ~50 Minuten backen lassen. (Umluft nicht empfehlens
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
       color: Colors.greenAccent,
       child: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: recipes.length,
-                itemBuilder: (context, index) {
-                  return RecipeCard(recipes[index]);
-                },
-              ),
-            ),
-          ],
+        child: ListView.builder(
+          itemCount: recipes.length,
+          itemBuilder: (context, index) {
+            return RecipeCard(recipes[index]);
+          },
         ),
       ),
     );
